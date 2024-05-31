@@ -1,6 +1,9 @@
 name: Checking variables
 
 on:
+  push:
+    branches:
+      - feat/update-readme
   workflow_dispatch:
 
 env:
