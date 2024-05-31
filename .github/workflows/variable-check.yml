@@ -13,8 +13,6 @@ jobs:
   check:
     name: Checking variables
 
-    environment: staging
-
     runs-on: ubuntu-latest
 
     timeout-minutes: 10
