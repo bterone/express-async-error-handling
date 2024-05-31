@@ -1,0 +1,33 @@
+name: Checking variables
+
+on:
+  workflow_dispatch:
+
+env:
+  BASE_BRANCH: feat/update-readme
+
+jobs:
+  check:
+    name: Checking variables
+
+    environment: staging
+
+    runs-on: ubuntu-latest
+
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ env.BASE_BRANCH }}
+
+      - name: Expose useful environment variables
+        uses: FranzDiebold/github-env-vars-action@v2.7.0
+
+      - name: Show environment variables
+        run:  |
+          echo "CI_REF_NAME_SLUG is $CI_REF_NAME_SLUG"
+          echo "CI_SHA_SHORT is $CI_SHA_SHORT"
+          echo "GITHUB_HEAD_REF is $GITHUB_HEAD_REF"
+          echo "GITHUB_REF is $GITHUB_REF"
