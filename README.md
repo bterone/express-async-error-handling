@@ -11,7 +11,7 @@ Calling `/async-error` keeps the request pending indefintely
 
 ![Screenshot 2023-09-22 at 3 28 01 PM](https://github.com/bterone/express-async-error-handling/assets/34730459/9ca60744-3b77-4a04-809f-0befefbd6de1)
 
-Using `process.on` we can catch `unhandledRejection` and handle accordingly
+Using `process.on` we can catch `unhandledRejection` and handle appropriately on the callback
 
 ```js
 process.on('unhandledRejection', (x) => {
