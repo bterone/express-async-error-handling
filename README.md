@@ -1,4 +1,4 @@
-# Express Async Error Handling v2.0.0
+# Express Async Error Handling
 
 There are two routes to test error handling behavior
 
