@@ -10,3 +10,5 @@ There are two routes to test error handling behavior
 Calling `/async-error` keeps the request pending indefintely
 
 ![Screenshot 2023-09-22 at 3 28 01 PM](https://github.com/bterone/express-async-error-handling/assets/34730459/9ca60744-3b77-4a04-809f-0befefbd6de1)
+
+TODO: Check if we can have proper stack trace on unhandled errors
