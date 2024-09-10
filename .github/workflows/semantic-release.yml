@@ -1,0 +1,32 @@
+name: Create Tag and Change Log
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  create-release:
+    name: release
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code into directory
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          token: ${{ secrets.GITHUB_TOKEN }}
+          submodules: true
+
+      - name: Release
+        if: github.event_name == 'push'
+        uses: cycjimmy/semantic-release-action@v3
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          branch: master
+          extra_plugins: |
+            @semantic-release/git@10.0.1
+            @semantic-release/exec@6.0.3

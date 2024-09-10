@@ -1,8 +1,22 @@
 var express = require('express');
 var router = express.Router();
 
+const doSomething = () => {
+  console.log('We did something')
+}
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  let timeoutId;
+
+  timeoutId = setTimeout(() => {
+    console.log('Webhook processing after delay time');
+
+    doSomething();
+    console.log('Clearing timeout ID: ', timeoutId)
+    clearTimeout(timeoutId);
+  }, 10000)
+
   res.render('index', { title: 'Express' });
 });
 
